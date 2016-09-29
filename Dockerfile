@@ -12,10 +12,10 @@ RUN apt-get install -y vim
 RUN apt-get install -y strace
 RUN apt-get install -y diffstat
 RUN apt-get install -y pkg-config
-RUN apt-get install -y cmake
-RUN apt-get install -y build-essential
+RUN apt-get install -y cmake build-essential
 RUN apt-get install -y tcpdump
 RUN apt-get install -y tmux
+RUN apt-get install -y ctags
 # Install go
 RUN curl https://storage.googleapis.com/golang/go1.7.1.linux-amd64.tar.gz | tar -C /usr/local -zx
 
