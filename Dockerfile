@@ -16,8 +16,14 @@ RUN apt-get install -y cmake build-essential
 RUN apt-get install -y tcpdump
 RUN apt-get install -y tmux
 RUN apt-get install -y ctags
+RUN apt-get install -y dnsutils
+RUN apt-get install -y sudo
+
 # Install go
-RUN curl https://storage.googleapis.com/golang/go1.7.1.linux-amd64.tar.gz | tar -C /usr/local -zx
+# COPY go1.8.3.linux-amd64.tar.gz .
+# RUN tar -zxf go1.8.3.linux-amd64.tar.gz -C /usr/local
+# RUN rm -f ./go1.8.3.linux-amd64.tar.gz
+# RUN curl https://storage.googleapis.com/golang/go1.7.1.linux-amd64.tar.gz | tar -C /usr/local -zx
 
 ENV GOROOT /usr/local/go
 ENV PATH /usr/local/go/bin:$PATH
@@ -29,7 +35,6 @@ ENV PATH /home/dev/bin:$PATH
 ENV PKG_CONFIG_PATH /home/dev/lib/pkgconfig
 ENV LD_LIBRARY_PATH /home/dev/lib
 ENV GOPATH /home/dev/go
-# $GOPATH
 
 # RUN go get github.com/dotcloud/gordon/pulls
 # Create a shared data volume

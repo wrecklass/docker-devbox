@@ -124,6 +124,9 @@ if [[ "${USER}" == "root" ]]; then
   userStyle="${red}";
   userName="root";
 else
+  if [ -z "${USER}" ];then
+    USER=dev
+  fi
   userStyle="${green}";
   userName="${USER}";
   ${IDCMD} -Gn | /bin/grep -i admin > /dev/null 2>&1
