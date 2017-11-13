@@ -3,14 +3,17 @@ kind: Pod
 metadata:
   name: devbox
 spec:
-  restartPolicy: Always
   containers:
     - name: devbox
-      image: devbox:v1
       volumeMounts:
         - name: shared-volume
           mountPath: /var/shared
+      image: devbox:v1
+      command: 
+        - sleep
+        - infinity
   volumes:
     - name: shared-volume
       hostPath:
         path: /Users/p2708440/src/docks/devbox/shared
+ 

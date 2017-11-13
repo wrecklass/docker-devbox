@@ -14,7 +14,7 @@ RUN apt-get install -y diffstat
 RUN apt-get install -y pkg-config
 RUN apt-get install -y cmake build-essential
 RUN apt-get install -y tmux
-RUN apt-get install -y ctags
+RUN apt-get install -y ctags man
 RUN apt-get install -y net-tools dnsutils tcpdump
 RUN apt-get install -y sudo
 RUN echo 'dev ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers.d/dev
@@ -46,7 +46,7 @@ ENV GOPATH /home/dev/go
 RUN mkdir /var/shared/
 RUN touch /var/shared/placeholder
 RUN chown -R dev:dev /var/shared
-RUN ls -l /var/
+# RUN ls -l /var/
 VOLUME /var/shared
 
 WORKDIR /home/dev
@@ -68,4 +68,4 @@ RUN ln -s /var/shared/.ssh
 RUN ln -s /var/shared/.bash_history
 RUN chown -R dev:dev /home/dev
 USER dev
-# CMD /bin/bash
+CMD sleep infinity
